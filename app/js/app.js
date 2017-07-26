@@ -148,7 +148,6 @@ var app = new Vue({
     methods: {
         /**
         * Total amount of order is a calculated tax free when the user press order
-        * @author Ali
         * @name order
         */
         order : function(){
@@ -162,25 +161,23 @@ var app = new Vue({
                 }
             }
             this.total = main_price + side_price;
-            }
-        //     ,
-        // loadDrinks: function(){
-        //     this.$http.get('/drinks').then(function(response){
-        //         //success callback
-        //         this.drinks = response;
-        //     }, function(error){
-        //         // error callback
-        //         console.log("No drink for you today!");
-        //     });
-        // }
-        // ,
-        // buy : function(){
-        //     this.$http.get('/pay', this.total).then(function(reposonce){
-        //         console.log("Payment is done");
-        //     }, function(error){
-        //         console.log("Error in payment");
-        //     });
-        // }
+            },
+        loadDrinks: function(){
+            this.$http.get('/drinks').then(function(response){
+                //success callback
+                this.drinks = response;
+            }, function(error){
+                // error callback
+                console.log("No drink for you today!");
+            });
+        },
+        buy : function(){
+            this.$http.get('/pay', this.total).then(function(reposonce){
+                console.log("Payment is done");
+            }, function(error){
+                console.log("Error in payment");
+            });
+        },
     }
 });
 
